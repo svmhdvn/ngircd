@@ -33,6 +33,7 @@ jobs:
       matrix:
         os:
           - ubuntu
+          - macos
         toolchain:
           - gcc
           - llvm
@@ -48,6 +49,18 @@ jobs:
             install_cmd: |
               sudo apt update
               sudo apt install build-essential expect libident-dev libpam0g-dev libssl-dev libwrap0-dev pkg-config telnet zlib1g-dev clang
+            CC: clang
+          - os: macos
+            toolchain: gcc
+            install_cmd: |
+              brew update
+              brew install expect libident linux-pam openssl@3 pkg-config telnet zlib gcc
+            CC: gcc
+          - os: macos
+            toolchain: llvm
+            install_cmd: |
+              brew update
+              brew install expect libident linux-pam openssl@3 pkg-config telnet zlib llvm
             CC: clang
     runs-on: ${{ matrix.os }}-latest
     steps:
