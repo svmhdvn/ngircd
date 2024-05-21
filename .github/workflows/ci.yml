@@ -54,13 +54,13 @@ jobs:
             toolchain: gcc
             install_cmd: |
               brew update
-              brew install expect libident linux-pam openssl@3 pkg-config telnet zlib gcc
+              brew install expect libident openssl@3 pkg-config telnet zlib gcc
             CC: gcc
           - os: macos
             toolchain: llvm
             install_cmd: |
               brew update
-              brew install expect libident linux-pam openssl@3 pkg-config telnet zlib llvm
+              brew install expect libident openssl@3 pkg-config telnet zlib llvm
             CC: clang
     runs-on: ${{ matrix.os }}-latest
     steps:
