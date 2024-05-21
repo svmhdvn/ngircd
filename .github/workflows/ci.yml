@@ -56,16 +56,16 @@ jobs:
             toolchain: gcc
             install_cmd: |
               brew update
-              brew install autoconf automake expect libident openssl@3 pkg-config telnet zlib gcc
+              brew install autoconf automake expect openssl@3 pkg-config telnet zlib gcc
             configure_cmd: |
-              ./configure CC=gcc --enable-ipv6 --with-iconv --with-ident --with-openssl --with-zlib
+              ./configure CC=gcc --enable-ipv6 --with-iconv --with-openssl --with-zlib
           - os: macos
             toolchain: llvm
             install_cmd: |
               brew update
-              brew install autoconf automake expect libident openssl@3 pkg-config telnet zlib llvm
+              brew install autoconf automake expect openssl@3 pkg-config telnet zlib llvm
             configure_cmd: |
-              ./configure CC=clang --enable-ipv6 --with-iconv --with-ident --with-openssl --with-zlib
+              ./configure CC=clang --enable-ipv6 --with-iconv --with-openssl --with-zlib
     runs-on: ${{ matrix.os }}-latest
     steps:
     - uses: actions/checkout@v4
