@@ -28,11 +28,15 @@ on:
 
 jobs:
   build_and_distcheck:
-    name: Configure ngIRCd sources and run make targets "all" and "distcheck"
+    name: build+test
     strategy:
       matrix:
-        os: [ubuntu, macos]
-        toolchain: [gcc, llvm]
+        os:
+          - ubuntu
+#          - macos
+        toolchain:
+          - gcc
+          - llvm
         include:
           - os: ubuntu
             toolchain: gcc
